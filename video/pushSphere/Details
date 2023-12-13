@@ -1,0 +1,9 @@
+baseline
+
+cost: 7.7 -> 1.7
+opt time: 144.3 s
+
+keypoint method: magvel change
+
+cost: 7.7 -> 1.8
+opt time: 16.9 s

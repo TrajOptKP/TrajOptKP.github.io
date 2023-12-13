@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="Trajectory Optimisation with Key-points">
+    <meta name="keywords" content="robotics, optimizaiton, manipulation, locomotion">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      TrajOptKP: Trajectory Optimisation with Key-points
+    </title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+                           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <style>
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  height: 0;
+}
+
+    .videoWrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    </style>
+  </head>
+  <body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    </nav>
+
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-2 publication-title">
+                Efficient Contact-Based Trajectory Optimisation  <br> via Approximated Derivatives  <br> (website still under creation) </h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  David Russell<sup>1</sup>, &nbsp;
+                  Rafael Papallas<sup>1</sup>, &nbsp;
+                  Aykut Özgün Önol<sup>2</sup>, &nbsp;
+                  Mehmet Dogar<sup>1</sup>
+                </span>
+                <br>
+                <br>
+
+                <div class="is-size-5 publication-authors">
+                  <span class="author-block"><sup>1</sup>University of Leeds - School of Computing</span> <br>
+                  <span class="author-block"><sup>2</sup>Toyota Research Institute</span>
+                </div>
+                <br>
+                <!-- <span class="link-block">
+                  <a href="https://github.com/DMackRus/TrajOptKP" target="_blank" class="external-link button is-normal is-rounded is-dark"  style="text-decoration: none">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> -->
+
+                <span class="link-block">
+                  <a href="https://youtu.be/BZCu6_rKC0Y?si=wck7cTDzRwoWFIEO" target="_blank" class="external-link button is-normal is-rounded is-dark"  style="text-decoration: none">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://github.com/DMackRus/TrajOptKP" target="_blank" class="external-link button is-normal is-rounded is-dark"  style="text-decoration: none">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://github.com/DMackRus/TO_Keypoints_GUI" target="_blank" class="external-link button is-normal is-rounded is-dark"  style="text-decoration: none">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>GUI and Data</span>
+                  </a>
+                </span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="columns is-centered has-text-centered">
+        <div class="container is-max-desktop">
+          <div class="content has-text-justified">
+            <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+              <div>
+                <video autoplay muted loop playsinline  width="98%">
+                  <source src="video/walker/walker_baseline.mp4" type="video/mp4"/>
+                </video>
+              </div>
+              <div>
+                <video autoplay muted loop playsinline  width="98%">
+                  <source src="video/walker/walker_keypoints.mp4" type="video/mp4"/>
+                </video>
+              </div>
+              <div>
+              </div>
+            </div>
+          </div>
+          We present <b>TrajOptKP (Trajectory Optimisation with Key-points)</b>, a novel yet simple method of speeding 
+          up trajectory optimisation through approximated derivatives. TrajOptKP is a general method that can be applied
+          to many trajectory optimisation algorithms.
+          <br>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p style="font-size: 18px; text-align: left">
+                Gradient-based trajectory optimisation is a powerful tool for robotic manipulation,       
+                enabling complex manipulation tasks to be solved . However, these optimisers take 
+                significant time for contact-interaction tasks, particularly in cluttered scenes. 
+                A large contributor to this is that calculating dynamics derivatives via numerical 
+                methods, such as finite-differencing, is computationally time-consuming when 
+                querying expensive physics simulators. In this paper, we propose a general method 
+                of speeding up trajectory optimisation  by only calculating dynamics gradients
+                at key-points with a computationally expensive method (finite-differencing or 
+                automatic-differentiation) and then using cheap linear interpolation in-between for 
+                the remaining derivatives. The result is a significant decrease in trajectory 
+                optimisation times without affecting the quality of the final solution noticeably.
+              </p>
+            </div>
+            <br>
+
+            <h2 class="title is-3">Video Summary</h2>
+            <div class="content has-text-justified">
+              <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+                <div class="column has-text-centered">
+                  <div class="videoWrapper">
+                    <iframe src="https://youtube.com/embed/BZCu6_rKC0Y?si=lZev2tHyuOZcMmCz" frameborder="0" 
+                                                               allow="autoplay; encrypted-media" allowfullscreen>
+                    </iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <h2 class="title is-3">Contact-implicit manipulation tasks</h2>
+            <div class="content has-text-justified">
+              <p style="font-size: 18px; text-align: left">
+              Here are a few examples of contact-implicit trajectory optimisation for manipulation to solves a variety of contact-rich
+              manipulation tasks. As can be seen, similar behaviour is discovered form our method, whilst significantly redcing the 
+              optimisation time.
+              </p>
+              <br>
+              <p style="font-size: 18px; text-align: left">
+              <b>Push moderate clutter</b> - Push a green cylinder to a goal location (green silhouette) through clutter. 
+              </p>
+              <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/pushClutter/PushClutter_keyPoints-2023-12-11_14.36.50.mp4" type="video/mp4"/>
+                  </video>
+                  <p style="font-size: 18px; text-align: center"><em>Ours, optimisation time: 7.1 s</em></p>
+                </div>
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/pushClutter/PushClutter_baseline-2023-12-11_14.51.11.mp4" type="video/mp4"/>
+                  </video>
+                  <p style="font-size: 18px; text-align: center"><em>Baseline, optimisation time: 123.1 s</em></p>
+                </div>
+              </div>
+              <p style="font-size: 18px; text-align: left">
+              <b>Box sweep</b> - Sweep a heavy box to a goal location (green silhouette).
+              </p>
+              <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/boxSweep/BoxSweep_keyPoints-2023-12-11_14.22.04.mp4" type="video/mp4"/>
+                  </video>
+                  <p style="font-size: 18px; text-align: center"><em>Ours, optimisation time: 2.5 s</em></p>
+                </div>
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/boxSweep/BoxSweep_baseline-2023-12-11_14.24.03.mp4" type="video/mp4"/>
+                  </video>
+                  <p style="font-size: 18px; text-align: center"><em>Baseline, optimisation time: 19.9 s </em></p>
+                </div>
+              </div>
+              <p style="font-size: 18px; text-align: left">
+                <b>Sphere push forward</b> - Slide a sphere forwards to a goal pose. Task taken from this repository. https://github.com/vincekurtz/drake_ddp
+              </p>
+              <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/pushSphere/Pushsphere_keyPoints.mp4" type="video/mp4"/>
+                  </video>
+                  <p style="font-size: 18px; text-align: center"><em>Ours, optimisation time: 15.7 s</em></p>
+                </div>
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/pushSphere/pushSphere_baseline.mp4" type="video/mp4"/>
+                  </video>
+                  <p style="font-size: 18px; text-align: center"><em>Baseline, optimisation time: 110.2 s</em></p>
+                </div>
+              </div>
+              <p style="font-size: 18px; text-align: left">
+                <b>Box slide</b> - Slide a box to a goal location (green silhouette). Task taken from this repository. https://github.com/aykutonol/cito
+              </p>
+              <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/BoxSlide/sawyer_keypoints-2023-12-12_16.03.43.mp4" type="video/mp4"/>
+                  </video>
+                  <p style="font-size: 18px; text-align: center"><em>Ours, optimisation time: 14.0 s</em></p>
+                </div>
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/BoxSlide/sawyer_baseline-2023-12-12_16.02.33.mp4" type="video/mp4"/>
+                  </video>
+                  <p style="font-size: 18px; text-align: center"><em>Baseline, optimisation time: 22.0 s</em></p>
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <h2 class="title is-3">Locomotion</h2>
+            <div class="content has-text-justified">
+              <p style="font-size: 18px; text-align: left">
+              Our key-point methods also work for contact-implicit locomotion trajectory optimisation. We ran two different locomotion 
+              tasks using MPC and our key-point methods. Our key-point methods enable one of two ideas, either maintaining the same
+              control frequency and extending the optimisation horizon, or, maintaining the same optimisation horizon and running 
+              MPC at a higher control frequency.
+              </p>
+              <br>
+              <p style="font-size: 18px; text-align: left">
+              <b>Walker locomotion</b> - (<i>iLQR</i> <i> finite-differencing</i>)Enable walker to move forwards at some target velocity whilst keeping the body upright at a 
+              specific height.
+              </p>
+              <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/walker/walker_keypoints.mp4" type="video/mp4"/>
+                  </video>
+                  <p style="font-size: 18px; text-align: center"><em>Ours (MPC)</em></p>
+                </div>
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/walker/walker_baseline.mp4" type="video/mp4"/>
+                  </video>
+                  <p style="font-size: 18px; text-align: center"><em>Baseline (MPC)</em></p>
+                </div>
+              </div>
+              <br>
+              <p style="font-size: 18px; text-align: left">
+              <b>Mini-cheetah locomotion</b> - Keep mini-cheetah body upright whilst moving forward at some target velocity.
+              </p>
+              <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/mini-cheetah/cheetah_keyPoints-2023-12-11_20.06.00.mp4" type="video/mp4"/>
+                  </video>
+                  <p style="font-size: 18px; text-align: center"><em>Ours (MPC replay), optimisation time: 1101 s</em></p>
+                </div>
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/mini-cheetah/cheetah_baseline-2023-12-11_17.45.26.mp4" type="video/mp4"/>
+                  </video>
+                  <p style="font-size: 18px; text-align: center"><em>Baseline (MPC replay), optimisation time: 375 s</em></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="section" id="Questions">
+      <div class="container is-max-desktop content">
+        <h2 class="title">Contact</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 18px; text-align: left">
+          Feel free to reach out with questions about this work! For questions specific about the codebase/implementation, please direct 
+          them towards David Russell.
+          <ul>
+            <li><a href="mailto:el16dmcr@leeds.ac.uk?subject=TrajOptKP: Trajectory Optimisation with Key-points">David Russell</a></li>
+            <li><a href="mailto:r.papallas@leeds.ac.uk?subject=TrajOptKP: Trajectory Optimisation with Key-points">Rafael Papallas</a></li>
+            <li><a href="mailto:aykut.onol@tri.global?subject=TrajOptKP: Trajectory Optimisation with Key-points">Aykut Özgün Önol</a></li>
+            <li><a href="mailto:M.R.Dogar@leeds.ac.uk?subject=TrajOptKP: Trajectory Optimisation with Key-points">Mehmet Dogar</a></li>
+          </ul>          
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="Questions">
+      <div class="container is-max-desktop content">
+        <h2 class="title">Ackowledgments</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 18px; text-align: left">
+          Thank you to Vince Kurtz for providing his implementation of iLQR in Python using Drake's automatic differntiation and support understanding
+          his repository.         
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>
+    @article{Rusell_TrajOptKP_2024,
+      title          = {Efficient Contact-based Trajectory Optimisation via Approximated Derivatives},
+      author         = {Russell, David and Papallas, Rafael and \"{O}nol, Aykut \"{O}zg\"{u}n and Dogar, Mehmet},
+      journal        = {ToBeConfirmed},
+      year           = {2024},
+    }
+        </code></pre>
+      </div>
+    </section>
+
+  </body>
+</html>

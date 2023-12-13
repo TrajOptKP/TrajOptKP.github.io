@@ -1,0 +1,9 @@
+Baseline
+
+final cost: 351.9 -> 6.32
+optimisation time: 22.0
+
+Keypoint method: adaptive jerk
+
+final cost: 351.9 -> 10.7
+optimisation time:14.0 s
