@@ -1,0 +1,10 @@
+Baseline:
+
+cost: 5.96 -> 1.01
+opt time: 123.6s
+
+
+Keypoint method: adaptive jerk
+
+cost: 5.96 -> 0.75
+opt time: 7.1s
